@@ -724,8 +724,11 @@ test_expect_success 'update' '
 		cd one &&
 		git remote add drosophila ../two &&
 		git remote add apis ../mirror &&
+		git ls-remote drosophila &&
+		git ls-remote apis &&
 		git remote update &&
 		git branch -r >output &&
+		echo "force error" >output &&
 		test_cmp expect output
 	)
 '
