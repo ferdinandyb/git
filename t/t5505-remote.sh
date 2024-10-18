@@ -489,7 +489,8 @@ test_expect_success 'add --mirror && prune' '
 		git fetch origin &&
 		git remote prune origin &&
 		test_must_fail git rev-parse --verify refs/heads/side2 &&
-		git rev-parse --verify refs/heads/side
+		git rev-parse --verify refs/heads/side &&
+		cat .git/HEAD && exit 1
 	)
 '
 
@@ -723,7 +724,7 @@ test_expect_success 'update' '
 	(
 		cd one &&
 		git remote add drosophila ../two &&
-		git remote add apis ../one &&
+		git remote add apis ../mirror &&
 		git ls-remote drosophila &&
 		git ls-remote apis &&
 		git remote update &&
