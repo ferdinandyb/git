@@ -46,4 +46,5 @@ v11: no change
 
 v12: no change
 
-v13: no change
+v13: - add another output type for when the previous reference that is
+       being overwriten is not a symboic reference
