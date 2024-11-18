@@ -40,4 +40,4 @@ v11: fixed some memory leaks
 
 v12: no change
 
-v13: no change
+v13: fix printed information if the local HEAD is detached
