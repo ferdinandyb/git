@@ -1,3 +1,7 @@
+state:
+    * last review: v12 https://lore.kernel.org/git/xmqqfrnt3xpd.fsf@gitster.g
+    * changes fine(?), requested commit message fixed in v13
+
 v9: - new patch
     - a bandaid for the CI issue noticed by Taylor (cf:
       https://lore.kernel.org/git/Zw8IKyPkG0Hr6%2F5t@nand.local/), but
