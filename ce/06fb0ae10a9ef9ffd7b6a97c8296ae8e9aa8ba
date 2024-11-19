@@ -48,3 +48,5 @@ v12: no change
 
 v13: added handling the edge case of previous remote/HEAD being
 a detached HEAD
+
+v14: no change
