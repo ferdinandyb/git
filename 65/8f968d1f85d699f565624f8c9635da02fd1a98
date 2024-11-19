@@ -27,3 +27,5 @@ v12: no change
 
 v13: if referent is a non-symbolic ref, record the hash in referent and
     signal this with a return value of -1
+
+v14: no change
