@@ -1,6 +1,7 @@
 state:
-    * last review: v12 https://lore.kernel.org/git/xmqqfrnt3xpd.fsf@gitster.g
-    * changes fine(?), requested commit message fixed in v13
+    * last review: v13
+      https://lore.kernel.org/git/xmqqr0767ej6.fsf@gitster.g
+    * changes fine, requested commit message fixed in v14
 
 v9: - new patch
     - a bandaid for the CI issue noticed by Taylor (cf:
@@ -16,4 +17,5 @@ v12: added forgotten sign-off
 
 v13: commit message udpated to be more precise
 
-v14: no change
+v14: made explicit in the commit message that the default branch is only
+     set for some CI jobs
