@@ -1,0 +1,11 @@
+state:
+    * last review: v13
+        https://lore.kernel.org/git/Zzw0ooX0HFwSit7v@pks.im
+        https://lore.kernel.org/git/xmqq4j44ggq0.fsf@gitster.g
+
+v13: new patch
+
+v14: - simplified the logic in reftables backend (thanks Junio)
+     - update the comment in refs.h (thanks Patrick)
+     - rewrote comment in refs-internal.h to point to the one in refs.h
+     - created NOT_A_SYMREF=-2 constant
