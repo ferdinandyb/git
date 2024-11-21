@@ -1,0 +1,14 @@
+state:
+    * last review: none
+
+v10: - new patch
+     - handles the issue discovered in
+       https://lore.kernel.org/git/D4ZAELFWJMKN.S88LJ6YK31LZ@ferdinandy.com/T/
+
+v11: no change
+
+v12: no change
+
+v13: properly print the previous head if it was detached
+
+v14: no change
