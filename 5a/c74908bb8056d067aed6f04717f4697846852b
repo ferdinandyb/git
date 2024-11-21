@@ -1,6 +1,3 @@
-state:
-    * last review: v12 https://lore.kernel.org/git/xmqqr07d11wt.fsf@gitster.g
-
 v4: new patch
 
 v5: - added before_target to reftables backend
