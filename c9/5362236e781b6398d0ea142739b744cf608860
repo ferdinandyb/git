@@ -1,8 +1,3 @@
-state:
-    * last review: v13
-        https://lore.kernel.org/git/Zzw0ooX0HFwSit7v@pks.im
-        https://lore.kernel.org/git/xmqq4j44ggq0.fsf@gitster.g
-
 v13: new patch
 
 v14: - simplified the logic in reftables backend (thanks Junio)
