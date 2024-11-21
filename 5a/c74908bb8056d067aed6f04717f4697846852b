@@ -28,6 +28,8 @@ v12: no change
 v13: if referent is a non-symbolic ref, record the hash in referent and
     signal this with a return value of -1
 
-v14: mistakes were made: trying to read the referent should NOT lead to
+v14: - mistakes were made: trying to read the referent should NOT lead to
      an actual error, even if it doesn't work out in the end, that part of
-     the code should only set the return to -1 or not touch it
+     the code should only set the return to -2 or not touch it
+     - the returned error code by the above was also incorrect and now
+       is -2 (and uses NOT_A_SYMREF now)
