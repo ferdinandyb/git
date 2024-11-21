@@ -43,4 +43,6 @@ v12: no change
 v13: - fix printed information if the local HEAD is detached
      - remove accidental formatting noise in a test
 
-v14: no change
+v14: remove report set_head auto: as discussed, any noise should only be
+created with an opt out, and the configuration for this will be added in
+a later patch
