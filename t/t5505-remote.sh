@@ -432,6 +432,18 @@ test_expect_success 'set-head --auto' '
 	)
 '
 
+test_expect_success REFFILES 'set-head --auto failure' '
+	(
+		cd test &&
+		touch .git/refs/remotes/origin/HEAD.lock &&
+		git remote set-head --auto origin 2>errormsg ||
+		tail -n1 errormsg >output &&
+		rm .git/refs/remotes/origin/HEAD.lock &&
+		echo "error: Could not set up refs/remotes/origin/HEAD" >expect &&
+		test_cmp expect output
+	)
+'
+
 test_expect_success 'set-head --auto has no problem w/multiple HEADs' '
 	(
 		cd test &&
