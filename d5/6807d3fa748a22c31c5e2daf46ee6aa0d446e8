@@ -46,3 +46,5 @@ v13: - fix printed information if the local HEAD is detached
 v14: remove report_set_head_auto: as discussed, any noise should only be
 created with an opt out, and the configuration for this will be added in
 a later patch
+
+v15: no change
