@@ -4,3 +4,5 @@ v14: - simplified the logic in reftables backend (thanks Junio)
      - update the comment in refs.h (thanks Patrick)
      - rewrote comment in refs-internal.h to point to the one in refs.h
      - created NOT_A_SYMREF=-2 constant
+
+v15: no change
