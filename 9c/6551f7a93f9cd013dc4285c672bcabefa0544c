@@ -51,3 +51,5 @@ a detached HEAD
 
 v14: - fixed badly named variable
      - fixed not reporting errors correctly
+
+v15: no change
