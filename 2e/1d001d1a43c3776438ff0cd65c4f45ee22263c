@@ -15,4 +15,4 @@ v13: commit message udpated to be more precise
 v14: made explicit in the commit message that the default branch is only
      set for some CI jobs
 
-v15: no change
+v15: fixed whitespace issues
