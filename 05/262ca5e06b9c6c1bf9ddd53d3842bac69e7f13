@@ -5,3 +5,5 @@ v14: - simplified the logic in reftables backend (thanks Junio)
      - rewrote comment in refs-internal.h to point to the one in refs.h
 
 asádfjkasdfljk- created NOT_A_SYMREF=-2 constant
+
+sdfasdf
