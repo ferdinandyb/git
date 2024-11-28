@@ -5,3 +5,5 @@ v2:
     - magic numbers converted to enum
     - since the enum is descriptive (well, along with the documentation)
       I felt there is no need for the comment explaining the values
+
+v3: missed a magic number in v2
