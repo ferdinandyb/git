@@ -62,8 +62,9 @@ struct remote_state *remote_state_new(void);
 	enum follow_remote_head_settings {
 		FOLLOW_REMOTE_NEVER = -1,
 		FOLLOW_REMOTE_CREATE = 0,
-		FOLLOW_REMOTE_WARN = 1,
-		FOLLOW_REMOTE_ALWAYS = 2,
+		FOLLOW_REMOTE_WARN_IF_NOT_BRANCH = 1,
+		FOLLOW_REMOTE_WARN = 2,
+		FOLLOW_REMOTE_ALWAYS = 3,
 	};
 
 struct remote {
@@ -116,6 +117,7 @@ struct remote {
 	struct string_list server_options;
 
 	enum follow_remote_head_settings follow_remote_head;
+	const char *no_warn_branch;
 };
 
 /**

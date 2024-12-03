@@ -124,7 +124,9 @@ test_expect_success "fetch test followRemoteHEAD warn no change" '
 		git fetch >output &&
 		echo "${SQ}HEAD${SQ} at ${SQ}origin${SQ} is ${SQ}main${SQ}," \
 			"but we have ${SQ}other${SQ} locally." >expect &&
-		echo "Run ${SQ}git remote set-head origin main${SQ} to follow the change." >>expect &&
+		echo "Run ${SQ}git remote set-head origin main${SQ} to follow the change, or" >>expect &&
+		echo "${SQ}git config set remote.origin.warn-if-not-main${SQ} to disable this warning" >>expect &&
+		echo "until the remote changes HEAD again." >>expect &&
 		test_cmp expect output &&
 		head=$(git rev-parse refs/remotes/origin/HEAD) &&
 		branch=$(git rev-parse refs/remotes/origin/other) &&
@@ -161,7 +163,9 @@ test_expect_success "fetch test followRemoteHEAD warn detached" '
 		echo "${SQ}HEAD${SQ} at ${SQ}origin${SQ} is ${SQ}main${SQ}," \
 			"but we have a detached HEAD pointing to" \
 			"${SQ}${HEAD}${SQ} locally." >expect &&
-		echo "Run ${SQ}git remote set-head origin main${SQ} to follow the change." >>expect &&
+		echo "Run ${SQ}git remote set-head origin main${SQ} to follow the change, or" >>expect &&
+		echo "${SQ}git config set remote.origin.warn-if-not-main${SQ} to disable this warning" >>expect &&
+		echo "until the remote changes HEAD again." >>expect &&
 		test_cmp expect output
 	)
 '
@@ -178,6 +182,47 @@ test_expect_success "fetch test followRemoteHEAD warn quiet" '
 		git config set remote.origin.followRemoteHEAD "warn" &&
 		output=$(git fetch --quiet) &&
 		test "z" = "z$output" &&
+		head=$(git rev-parse refs/remotes/origin/HEAD) &&
+		branch=$(git rev-parse refs/remotes/origin/other) &&
+		test "z$head" = "z$branch"
+	)
+'
+
+test_expect_success "fetch test followRemoteHEAD warn-if-not-branch branch is same" '
+	test_when_finished "git config unset remote.origin.followRemoteHEAD" &&
+	(
+		cd "$D" &&
+		cd two &&
+		git rev-parse --verify refs/remotes/origin/other &&
+		git remote set-head origin other &&
+		git rev-parse --verify refs/remotes/origin/HEAD &&
+		git rev-parse --verify refs/remotes/origin/main &&
+		git config set remote.origin.followRemoteHEAD "warn-if-not-main" &&
+		output=$(git fetch) &&
+		test "z" = "z$output" &&
+		head=$(git rev-parse refs/remotes/origin/HEAD) &&
+		branch=$(git rev-parse refs/remotes/origin/other) &&
+		test "z$head" = "z$branch"
+	)
+'
+
+test_expect_success "fetch test followRemoteHEAD warn-if-not-branch branch is different" '
+	test_when_finished "git config unset remote.origin.followRemoteHEAD" &&
+	(
+		cd "$D" &&
+		cd two &&
+		git rev-parse --verify refs/remotes/origin/other &&
+		git remote set-head origin other &&
+		git rev-parse --verify refs/remotes/origin/HEAD &&
+		git rev-parse --verify refs/remotes/origin/main &&
+		git config set remote.origin.followRemoteHEAD "warn-if-not-some/different-branch" &&
+		git fetch >output &&
+		echo "${SQ}HEAD${SQ} at ${SQ}origin${SQ} is ${SQ}main${SQ}," \
+			"but we have ${SQ}other${SQ} locally." >expect &&
+		echo "Run ${SQ}git remote set-head origin main${SQ} to follow the change, or" >>expect &&
+		echo "${SQ}git config set remote.origin.warn-if-not-main${SQ} to disable this warning" >>expect &&
+		echo "until the remote changes HEAD again." >>expect &&
+		test_cmp expect output &&
 		head=$(git rev-parse refs/remotes/origin/HEAD) &&
 		branch=$(git rev-parse refs/remotes/origin/other) &&
 		test "z$head" = "z$branch"
