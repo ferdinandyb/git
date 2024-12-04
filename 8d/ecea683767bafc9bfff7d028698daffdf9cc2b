@@ -1,2 +1,2 @@
-For the test I just indiscriminately ran:
+For the tests I just indiscriminately ran:
 sed -i "s/git config advice\./git config set advice./" t[0-9]*.sh
