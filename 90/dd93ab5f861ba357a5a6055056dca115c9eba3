@@ -1,2 +1,5 @@
 For the tests I just indiscriminately ran:
 sed -i "s/git config advice\./git config set advice./" t[0-9]*.sh
+
+v2: - fixed 3 hardcoded "git config advice" type messages
+    - made the motiviation more explicit
