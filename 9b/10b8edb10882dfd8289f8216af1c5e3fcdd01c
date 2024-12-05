@@ -1,2 +1,4 @@
 v2: reuse FOLLOW_REMOTE_WARN
     add documentation
+
+v3: s/output/actual in tests
