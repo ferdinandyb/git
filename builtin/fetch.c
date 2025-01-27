@@ -1770,8 +1770,7 @@ static int do_fetch(struct transport *transport,
 
 	if (tags == TAGS_SET || tags == TAGS_DEFAULT) {
 		must_list_refs = 1;
-		if (transport_ls_refs_options.ref_prefixes.nr)
-			strvec_push(&transport_ls_refs_options.ref_prefixes,
+		strvec_push(&transport_ls_refs_options.ref_prefixes,
 				    "refs/tags/");
 	}
 
